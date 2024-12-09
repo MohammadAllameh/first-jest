@@ -1,4 +1,4 @@
-const gta = require("../src/sum");
+const { gta, shoppingList, getMessageWelcom, getUser } = require("../src/sum");
 // test("our first test", () => {
 //   throw new Error("test failed");
 // });
@@ -23,3 +23,34 @@ describe("gta - math pointer", () => {
     expect(result).toBe(true);
   });
 });
+
+describe("getMessageWelcom", () => {
+  it("should return Welcome", () => {
+    const result = getMessageWelcom("mohammad");
+    expect(result).toContain("mohammad");
+  });
+});
+
+describe("shoppingList", () => {
+  // it("should return an array", () => {
+  //   const result = shoppingList("milk");
+  //   expect(result).toBeInstanceOf(Array);
+  // });
+  it("should return an array", () => {
+    const result = shoppingList();
+    expect(result).toContain("milk");
+  });
+  // it("the shopping list has milk on it", () => {
+  //   expect(shoppingList).toContain("milk");
+  //   expect(new Set(shoppingList)).toContain("milk");
+  // });
+});
+
+describe("getMessageWelcom", () => {
+  it("should return Welcome", () => {
+    const result = getMessageWelcom("mohammad");
+    expect(result).toContain("mohammad");
+  });
+});
+
+// describe("gta - math pointer", () => {});
