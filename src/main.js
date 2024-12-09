@@ -28,4 +28,9 @@ function getUser() {
   };
 }
 
-module.exports = { gta, getMessageWelcom, shoppingList, getUser };
+function login(pass) {
+  if (pass !== "1234") throw new Error("invalid password");
+  return { jwt: "jskdfosldfkjownerk2oi34uj2342i3j5$#Q$@#$" };
+}
+
+module.exports = { gta, getMessageWelcom, shoppingList, getUser, login };

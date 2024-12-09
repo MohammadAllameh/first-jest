@@ -1,8 +1,15 @@
-const { gta, shoppingList, getMessageWelcom, getUser } = require("../src/sum");
+const {
+  gta,
+  shoppingList,
+  getMessageWelcom,
+  getUser,
+  login,
+} = require("../src/main");
 // test("our first test", () => {
 //   throw new Error("test failed");
 // });
 
+// indgroutn with test and describe  and it and expect
 describe("gta - math pointer", () => {
   //   test("should return true if c is grater than d", () => {
   it("should return true if c is grater than d", () => {
@@ -24,6 +31,7 @@ describe("gta - math pointer", () => {
   });
 });
 
+// test for string
 describe("getMessageWelcom", () => {
   it("should return Welcome", () => {
     const result = getMessageWelcom("mohammad");
@@ -31,6 +39,7 @@ describe("getMessageWelcom", () => {
   });
 });
 
+// work test for list string
 describe("shoppingList", () => {
   // it("should return an array", () => {
   //   const result = shoppingList("milk");
@@ -46,11 +55,26 @@ describe("shoppingList", () => {
   // });
 });
 
-describe("getMessageWelcom", () => {
-  it("should return Welcome", () => {
-    const result = getMessageWelcom("mohammad");
-    expect(result).toContain("mohammad");
+// work test for Object and method more
+describe("getUster", () => {
+  it("should return User Information", () => {
+    const result = getUser();
+    // expect(result).toEqual({ id: 1, name: "mohammad" });
+    // expect(result).toMatchObject({ id: 2 });
+    expect(result).toHaveProperty("id"); // entity Id property
+    expect(result).toHaveProperty("id", 1); // entity Id property and value currect
   });
 });
 
-// describe("gta - math pointer", () => {});
+// work test for Object and method more
+describe("login", () => {
+  it("should return throw an error if password is wrong", () => {
+    expect(() => {
+      login("1235");
+    }).toThrow();
+  });
+  it("should return jwt  if password is not wrong", () => {
+    const result = login("1234");
+    expect(result).toHaveProperty("jwt");
+  });
+});
